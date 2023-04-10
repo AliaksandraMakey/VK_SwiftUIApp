@@ -10,19 +10,21 @@ import SwiftUI
 struct LoginView: View {
     @StateObject private var loginViewModel = LoginViewModel()
     @EnvironmentObject var authentication: Authentication
+    
+    //TODO: Добавить ScrolView и выезд клавиатуры
     var body: some View {
         // VStack
         VStack {
-            ScreenView()
-                .ignoresSafeArea(edges: .bottom)
-                .frame(height: 800)
+            LogoView()
+                .frame(height: 150)
+                .offset(y: -50)
+                .padding()
             // VStack
             VStack {
                 // TextField
                 TextField("Your email", text: $loginViewModel.user.email)
                     .keyboardType(.emailAddress)
                 Divider()
-                //                Spacer()
                 // SecureField
                 SecureField("Password", text: $loginViewModel.user.password)
                 Divider()
@@ -30,7 +32,6 @@ struct LoginView: View {
                 if loginViewModel.showProgressView {
                     ProgressView()
                 }
-                // Button
                 Button("Log in") {
                     loginViewModel.login { success in
                         authentication.updateValidation(success: success)
@@ -44,9 +45,8 @@ struct LoginView: View {
             }
             .autocapitalization(.none)
             .font(.system(size: 20, weight: .medium, design: .monospaced))
-            .offset(y: -250)
+            .offset(y: 50)
             .padding(.bottom, -150)
-            //            .textFieldStyle(RoundedBorderTextFieldStyle())
             .padding()
             .disabled(loginViewModel.showProgressView)
             .alert(item: $loginViewModel.error) { error in
@@ -54,7 +54,11 @@ struct LoginView: View {
                         Text (error.localizedDescription))
             }
         }
-        
+        .frame(height: 830)
+        // избавилась от доп сущности и перенесла настройку background. Увидела такой метод использования в уроке.
+        .background(Image("screen1")
+            .resizable()
+            .ignoresSafeArea(edges: .top))
     }
 }
 

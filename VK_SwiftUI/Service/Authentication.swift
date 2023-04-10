@@ -15,10 +15,10 @@ class Authentication: ObservableObject {
             self.localizedDescription
         }
         var errorDescription: String? {
-        switch self {
-        case .invalidCredentials:
-        return NSLocalizedString("Either your email or password are incorrect. Please try again", comment: "")
-        }
+            switch self {
+            case .invalidCredentials:
+                return NSLocalizedString("Either your email or password are incorrect. Please try again", comment: "")
+            }
         }
     }
     func updateValidation(success: Bool) {
