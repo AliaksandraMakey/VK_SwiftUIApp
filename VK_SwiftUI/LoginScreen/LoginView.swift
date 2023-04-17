@@ -6,59 +6,77 @@
 //
 
 import SwiftUI
+import Combine
 
 struct LoginView: View {
-    @StateObject private var loginViewModel = LoginViewModel()
+    @StateObject private var loginViewModel = LoginModel()
     @EnvironmentObject var authentication: Authentication
+    @State private var shouldShowLogo: Bool = true
+    
+    private let keyboardIsOnPublisher = Publishers.Merge( NotificationCenter.default.publisher(for: UIResponder.keyboardWillChangeFrameNotification)
+        .map { _ in true },
+                                                          
+        NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)
+        .map { _ in false }
+    )
+        .removeDuplicates()
+    
     
     //TODO: Добавить ScrolView и выезд клавиатуры
     var body: some View {
-        // VStack
-        VStack {
-            LogoView()
-                .frame(height: 150)
-                .offset(y: -50)
-                .padding()
-            // VStack
+        ScrollView(showsIndicators: false) {
             VStack {
-                // TextField
-                TextField("Your email", text: $loginViewModel.user.email)
-                    .keyboardType(.emailAddress)
-                Divider()
-                // SecureField
-                SecureField("Password", text: $loginViewModel.user.password)
-                Divider()
-                
-                if loginViewModel.showProgressView {
-                    ProgressView()
+                if shouldShowLogo {
+                    LogoView()
+                        .frame(height: 150)
+                        .offset(y: -50)
+                        .padding()
                 }
-                Button("Log in") {
-                    loginViewModel.login { success in
-                        authentication.updateValidation(success: success)
+                VStack {
+                    TextField("Your email", text: $loginViewModel.user.email)
+                        .keyboardType(.emailAddress)
+                    Divider()
+                    SecureField("Password", text: $loginViewModel.user.password)
+                    Divider()
+                    
+                    if loginViewModel.showProgressView {
+                        ProgressView()
+                    }
+                    Button("Log in") {
+                        loginViewModel.login { success in
+                            authentication.updateValidation(success: success)
+                        }
+                    }
+                    .foregroundColor(.black)
+                    .disabled(loginViewModel.loginDisabled)
+                    .onTapGesture {
+                        UIApplication.shared.endEditing()
                     }
                 }
-                .foregroundColor(.black)
-                .disabled(loginViewModel.loginDisabled)
-                .onTapGesture {
-                    UIApplication.shared.endEditing()
+                .autocapitalization(.none)
+                .font(.system(size: 20, weight: .medium, design: .monospaced))
+                .offset(y: 50)
+                .padding(.bottom, -150)
+                .padding()
+                .disabled(loginViewModel.showProgressView)
+                .alert(item: $loginViewModel.error) { error in
+                    Alert(title: Text("Invlid Login"), message:
+                            Text (error.localizedDescription))
                 }
             }
-            .autocapitalization(.none)
-            .font(.system(size: 20, weight: .medium, design: .monospaced))
-            .offset(y: 50)
-            .padding(.bottom, -150)
-            .padding()
-            .disabled(loginViewModel.showProgressView)
-            .alert(item: $loginViewModel.error) { error in
-                Alert(title: Text("Invlid Login"), message:
-                        Text (error.localizedDescription))
-            }
+            .frame(height: 900)
+            .background(Image("screen1")
+                .resizable()
+               )
         }
-        .frame(height: 830)
-        // избавилась от доп сущности и перенесла настройку background. Увидела такой метод использования в уроке.
-        .background(Image("screen1")
-            .resizable()
-            .ignoresSafeArea(edges: .top))
+        .ignoresSafeArea(edges: .top)
+        
+        .onReceive(keyboardIsOnPublisher) { isKeyboardOn in
+            withAnimation(Animation.easeInOut(duration: 0.5)) {
+                self.shouldShowLogo = !isKeyboardOn }
+        }
+        .onTapGesture { UIApplication.shared.endEditing()
+        }
     }
 }
 

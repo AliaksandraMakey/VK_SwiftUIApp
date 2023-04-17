@@ -10,12 +10,14 @@ import SwiftUI
 struct NewsTableView: View {
     var news = [NewsModel]()
     var body: some View {
-        List(news) { item in
-            TableNewsWithText(news: item) {
-                Image(item.photoAvatar)
-                Text(item.ouner)
-                Text(item.text)
-            }
+        NavigationView {
+            List(news) { item in
+                TableNewsWithText(news: item) {
+                    Image(item.photoAvatar)
+                    Text(item.ouner)
+                    Text(item.text)
+                }
+            } .navigationTitle("News")
         }
     }
 }

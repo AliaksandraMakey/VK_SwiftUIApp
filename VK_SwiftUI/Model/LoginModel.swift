@@ -7,7 +7,7 @@
 
 import Foundation
 
-class LoginViewModel: ObservableObject {
+class LoginModel: ObservableObject {
     @Published var user = User()
     @Published var showProgressView = false
     @Published var error: Authentication .AuthenticationError?

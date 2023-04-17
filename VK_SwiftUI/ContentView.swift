@@ -7,27 +7,53 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
     @EnvironmentObject var authentication: Authentication
+    @State private var selectedTab: Tab = .newspaper
     
+    init() {
+        UITabBar.appearance().isHidden = true
+    }
     var body: some View {
         VStack {
             // Image and name User
             UserHeader()
-            
+                .padding(.top, -10)
             NavigationView {
-                VStack {
-                    NewsTableView(news: newsArray)
-                }
-                .navigationTitle("News")
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button("Log out") {
-                            authentication.updateValidation(success: false)
+                ZStack {
+                    VStack {
+                        TabView(selection: $selectedTab) {
+                            ForEach(Tab.allCases, id: \.rawValue) { tab in
+                                HStack {
+                                    switch selectedTab {
+                                    case .person:
+                                        FriendTableView(friends: friendArray)
+                                    case .newspaper:
+                                        NewsTableView(news: newsArray)
+                                    case .folder:
+                                        GroupTableView(group: groupArray)
+                                    }
+                                }
+                                .tag(tab)
+                            }
                         }
-                        .foregroundColor(Color.black)
+                    }
+                    
+                    VStack {
+                        Spacer()
+                        CustomTabBar(selectedTab: $selectedTab)
                     }
                 }
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button("Log out") {
+                                authentication.updateValidation(success: false)
+                            }
+                            .foregroundColor(Color.black)
+                        }
+                    }
+                
             }
         }
     }

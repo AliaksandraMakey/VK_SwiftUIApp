@@ -32,7 +32,7 @@ struct TableNewsWithText<Content: View>: View {
                         .foregroundColor(Color.gray)
                 }
                 .padding(.leading, -20)
-                .frame(width: 100, height: 100)
+                .frame(width: 200, height: 100)
             }
             Spacer()
             Text(news.text)

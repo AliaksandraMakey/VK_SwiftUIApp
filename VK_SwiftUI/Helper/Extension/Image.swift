@@ -12,9 +12,15 @@ extension Image {
         self
             .resizable()
             .clipShape(Circle())
-            .shadow(radius: 10)
+            .shadow(radius: 5)
             .overlay {
                 Circle().stroke(.black, lineWidth: 1)
             }
     }
+    func imageFrameForCellModifier() -> some View {
+        self
+            .imageCornerModifier()
+        .frame(width: 60.0, height: 60.0)
+    }
+     
 }
