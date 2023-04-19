@@ -11,10 +11,10 @@ import WebKit
 
 
 struct LoginView: View {
-//    @Binding var isUserLoggedInn: Bool
     @StateObject private var loginViewModel = LoginModel()
     @EnvironmentObject var authentication: Authentication
     @State private var shouldShowLogo: Bool = true
+//    @Binding var isUserLoggedInn: Bool
     
     private let keyboardIsOnPublisher = Publishers.Merge(NotificationCenter.default.publisher(for: UIResponder.keyboardWillChangeFrameNotification)
         .map { _ in true },
@@ -43,10 +43,12 @@ struct LoginView: View {
                     if loginViewModel.showProgressView {
                         ProgressView()
                     }
-                    Button("Log in") {
+                    Button {
                         loginViewModel.login { success in
                             authentication.updateValidation(success: success)
                         }
+                    } label: {
+                        Text("Log in")
                     }
                     .foregroundColor(.black)
                     .disabled(loginViewModel.loginDisabled)

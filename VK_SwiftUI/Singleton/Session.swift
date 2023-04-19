@@ -14,8 +14,8 @@ class Session: ObservableObject {
 
     @Published var isAuthorized: Bool = false
     @Published var token = ""
-    @Published var userId = 0
+    @Published var userId = ""
     @Published var expiresInDate: Date?
     @Published var version = "5.68"
-    @Published var cliendId = "51472700"
+    @Published var cliendId = "51619940"
 }
