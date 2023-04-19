@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		001B604D29EFD7B900BACE4A /* LoginWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001B604C29EFD7B900BACE4A /* LoginWebView.swift */; };
+		001B604F29EFD7E800BACE4A /* WebViewNavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001B604E29EFD7E800BACE4A /* WebViewNavigationDelegate.swift */; };
+		001B605229EFD84600BACE4A /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001B605129EFD84600BACE4A /* Session.swift */; };
+		001B605429EFFC9000BACE4A /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001B605329EFFC9000BACE4A /* TabBarView.swift */; };
 		0062F20329E44E1800E29A3E /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0062F20229E44E1800E29A3E /* Image.swift */; };
 		009BDBDC29DC4DC100D0DEEE /* VK_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009BDBDB29DC4DC100D0DEEE /* VK_SwiftUIApp.swift */; };
 		009BDBDE29DC4DC100D0DEEE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009BDBDD29DC4DC100D0DEEE /* ContentView.swift */; };
@@ -38,6 +42,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		001B604C29EFD7B900BACE4A /* LoginWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWebView.swift; sourceTree = "<group>"; };
+		001B604E29EFD7E800BACE4A /* WebViewNavigationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewNavigationDelegate.swift; sourceTree = "<group>"; };
+		001B605129EFD84600BACE4A /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		001B605329EFFC9000BACE4A /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		0062F20229E44E1800E29A3E /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		009BDBD829DC4DC100D0DEEE /* VK_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VK_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		009BDBDB29DC4DC100D0DEEE /* VK_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VK_SwiftUIApp.swift; sourceTree = "<group>"; };
@@ -80,6 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		001B605029EFD83500BACE4A /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				001B605129EFD84600BACE4A /* Session.swift */,
+			);
+			path = Singleton;
+			sourceTree = "<group>";
+		};
 		0062F20029E44DC900E29A3E /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +134,8 @@
 			children = (
 				009BDBDB29DC4DC100D0DEEE /* VK_SwiftUIApp.swift */,
 				009BDBDD29DC4DC100D0DEEE /* ContentView.swift */,
+				001B605329EFFC9000BACE4A /* TabBarView.swift */,
+				001B605029EFD83500BACE4A /* Singleton */,
 				00E37CC829E6DBCD004E8C49 /* CustomTabBar */,
 				0062F20029E44DC900E29A3E /* Helper */,
 				00C649C529E40DF000CC8E93 /* LoginScreen */,
@@ -177,6 +195,8 @@
 			children = (
 				009BDBF729DD488400D0DEEE /* LogoView.swift */,
 				009BDBF329DC8ECA00D0DEEE /* LoginView.swift */,
+				001B604C29EFD7B900BACE4A /* LoginWebView.swift */,
+				001B604E29EFD7E800BACE4A /* WebViewNavigationDelegate.swift */,
 			);
 			path = LoginScreen;
 			sourceTree = "<group>";
@@ -314,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00C649D229E4314A00CC8E93 /* NewsArray.swift in Sources */,
+				001B605229EFD84600BACE4A /* Session.swift in Sources */,
 				009BDBF029DC8A3900D0DEEE /* UIApplication.swift in Sources */,
 				00C649CC29E4199A00CC8E93 /* News.swift in Sources */,
 				00E37CC029E6D507004E8C49 /* GroupArray.swift in Sources */,
@@ -323,6 +344,7 @@
 				00E37CCC29E6DCC5004E8C49 /* Tab.swift in Sources */,
 				0062F20329E44E1800E29A3E /* Image.swift in Sources */,
 				009BDBF429DC8ECB00D0DEEE /* LoginView.swift in Sources */,
+				001B604D29EFD7B900BACE4A /* LoginWebView.swift in Sources */,
 				00E37CBB29E6CFC5004E8C49 /* Group.swift in Sources */,
 				00C649D029E424BC00CC8E93 /* UserHeader.swift in Sources */,
 				009BDBFB29DD6BA600D0DEEE /* Authentication.swift in Sources */,
@@ -338,6 +360,8 @@
 				00E37CB929E6CF7A004E8C49 /* Friend.swift in Sources */,
 				009BDBEE29DC88B400D0DEEE /* APIService.swift in Sources */,
 				009BDBEB29DC881000D0DEEE /* User.swift in Sources */,
+				001B604F29EFD7E800BACE4A /* WebViewNavigationDelegate.swift in Sources */,
+				001B605429EFFC9000BACE4A /* TabBarView.swift in Sources */,
 				00E37CC729E6D8BD004E8C49 /* FriendTableCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

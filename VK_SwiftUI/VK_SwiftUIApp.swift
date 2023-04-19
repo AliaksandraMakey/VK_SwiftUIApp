@@ -12,13 +12,13 @@ struct VK_SwiftUIApp: App {
     @StateObject var authentication = Authentication()
     var body: some Scene {
         WindowGroup {
-//            if authentication.isValidated {
-                ContentView()
-//                    .environmentObject(authentication)
-//            } else {
-//                LoginView()
-//                    .environmentObject(authentication)
-//            }
+            if authentication.isValidated {
+                LoginWebView()
+                    .environmentObject(authentication)
+            } else {
+                LoginView()
+                    .environmentObject(authentication)
+            }
         }
     }
 }

@@ -12,7 +12,7 @@ class APIService {
     
     func login(user: User, completion: @escaping ((Result<Bool, Authentication.AuthenticationError>)-> Void)) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            if user.password == "33333" {
+            if user.password == "12" {
                 completion(.success(true))
             } else {
                 completion(.failure(.invalidCredentials))

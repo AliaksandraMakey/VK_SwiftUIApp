@@ -7,18 +7,19 @@
 
 import SwiftUI
 import Combine
+import WebKit
+
 
 struct LoginView: View {
+//    @Binding var isUserLoggedInn: Bool
     @StateObject private var loginViewModel = LoginModel()
     @EnvironmentObject var authentication: Authentication
     @State private var shouldShowLogo: Bool = true
     
-    private let keyboardIsOnPublisher = Publishers.Merge( NotificationCenter.default.publisher(for: UIResponder.keyboardWillChangeFrameNotification)
+    private let keyboardIsOnPublisher = Publishers.Merge(NotificationCenter.default.publisher(for: UIResponder.keyboardWillChangeFrameNotification)
         .map { _ in true },
-                                                          
         NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)
-        .map { _ in false }
-    )
+        .map { _ in false })
         .removeDuplicates()
     
     
@@ -80,9 +81,9 @@ struct LoginView: View {
     }
 }
 
-struct LoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginView()
-    }
-}
-
+//struct LoginView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LoginView(isUserLoggedInn: $isUser)
+//    }
+//}
+//

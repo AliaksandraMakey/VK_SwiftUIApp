@@ -38,7 +38,7 @@ struct FriendTableCell<Content: View>: View {
                             CollectionViewCell(friend: friend) {
                                 ForEach(0...(friend.photos!.count), id: \.self) { index in
                                     ZStack {
-                                        Image("\(friend.photos?[index])")
+                                        Image("\(String(describing: friend.photos?[index]))")
                                     }
                                 }
                             }
