@@ -40,10 +40,13 @@ class WebViewNavigationDelegate: NSObject, WKNavigationDelegate {
                 return
             }
             print("TOKEN ---> \(token)")
+            
             session.token = token
             session.userId = userIdString
             session.isAuthorized = true
         
+            UserDefaults.standard.set(token, forKey: "vkToken")
+            NotificationCenter.default.post(name: NSNotification.Name("vkTokenSaved"), object: self)
         decisionHandler(.cancel)
     }
 }

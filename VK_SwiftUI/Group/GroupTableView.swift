@@ -8,23 +8,27 @@
 import SwiftUI
 
 struct GroupTableView: View {
-    var group = [GroupModel]()
+    @ObservedObject var viewModel: GroupViewModel
+    
+    init(viewModel: GroupViewModel) {
+        self.viewModel = viewModel
+    }
     var body: some View {
         NavigationView {
-            List(group) { item in
-                GroupTableCell(group: item) {
-                    Image(item.photoAvatar)
-                    Text(item.name)
-                    Text(item.date)
+            List(viewModel.groups.sorted(by: {$0.name < $1.name})) { group in
+                GroupTableCell(group: group) {
+                    Image(group.photo50)
+                    Text(group.name)
                 }
-            } .navigationTitle("Group")
+            }
+            .onAppear { viewModel.fetch() }
+            .navigationTitle("Group")
         }
-       
     }
 }
 
 struct GroupeTableView_Previews: PreviewProvider {
     static var previews: some View {
-        GroupTableView(group: groupArray)
+        GroupTableView(viewModel: GroupViewModel(api: GroupsAPI()))
     }
 }

@@ -40,7 +40,6 @@ struct LoginWebView: UIViewRepresentable {
             URLQueryItem(name: "v", value: session.version)
             ]
             
-        
         return components.url.map { URLRequest(url: $0) }
     }
 }
