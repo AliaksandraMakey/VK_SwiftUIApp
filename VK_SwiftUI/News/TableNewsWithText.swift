@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TableNewsWithText<Content: View>: View {
+    
     let content: Content
     let news: NewsModel
     init(news: NewsModel,
@@ -44,6 +45,7 @@ struct TableNewsWithText<Content: View>: View {
                 if news.photos != nil {
                     Image(news.photos![0])
                         .resizable()
+                    
                         .frame(width: 140.0, height: 140.0)
                     Image(news.photos![1])
                         .resizable()

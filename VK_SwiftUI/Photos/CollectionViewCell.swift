@@ -29,9 +29,12 @@ struct CollectionViewCell<Content: View>: View {
                 ForEach(0..<(friend.photos?.count ?? 0), id: \.self) { index in
                             // TODO: Add error handling
                             if friend.photos?.count != nil {
-                                Image("\(friend.photos![index])")
-                                    .imageCornerModifier()
-                                    .frame(width: widht, height: widht)
+                                VStack {
+                                    Image("\(friend.photos![index])")
+                                        .imageCornerModifier()
+                                        .frame(width: widht, height: widht)
+                                    CustomLikeButton()
+                                }
                      
                     }
                 }

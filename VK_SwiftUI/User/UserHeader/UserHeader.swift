@@ -9,11 +9,14 @@ import SwiftUI
 
 struct UserHeader: View {
     var user = User()
+    @State private var isScaled = false
     var body: some View {
         HStack() {
             Grid {
                 Image(user.photoAvatar)
                     .imageCornerModifier()
+                    .scaleEffect(isScaled ? 1.5 : 1.0)
+                   
                     .frame(width: 85.0, height: 85.0)
                     .padding(.leading, -140)
             }

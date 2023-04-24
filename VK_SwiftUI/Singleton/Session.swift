@@ -16,6 +16,7 @@ class Session: ObservableObject {
     @Published var token = ""
     @Published var userId = ""
     @Published var expiresInDate: Date?
-    @Published var version = "5.131"
-    @Published var cliendId = "51619940"
+//    @Published var version = "5.131"
+//    @Published var cliendId = "51619940"
+    
 }

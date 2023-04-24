@@ -9,12 +9,14 @@ import SwiftUI
 
 struct FriendTableView: View {
     var friends = [FriendModel]()
-    
+    @State private var isScaled = false
     var body: some View {
         NavigationView {
             List(friends) { item in
                 FriendTableCell(friend: item) {
                     Image(item.photoAvatar)
+                       
+                
                     Text(item.name)
                     Text(item.date)
                 }

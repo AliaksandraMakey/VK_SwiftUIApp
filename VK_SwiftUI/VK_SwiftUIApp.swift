@@ -9,15 +9,25 @@ import SwiftUI
 
 @main
 struct VK_SwiftUIApp: App {
-    @StateObject var authentication = Authentication()
     var body: some Scene {
+        
         WindowGroup {
-            if authentication.isValidated {
-                ContentView()
-                    .environmentObject(authentication)
-            } else {
-                LoginView()
-                    .environmentObject(authentication)
+            NavigationStack {
+                VStack {
+                    NavigationLink(destination:  LoginWebView()) {
+                        Text("Login Web View")
+                    }
+                    Divider()
+                    NavigationLink(destination:  ContentView()) {
+                        Text("Login View")
+                          
+                    }
+                }
+                .navigationBarTitle("", displayMode: .inline)
+                .navigationBarHidden(true)
+                .navigationBarBackButtonHidden(true)
+                .foregroundColor(Color.black)
+                .edgesIgnoringSafeArea([.top, .bottom])
             }
         }
     }

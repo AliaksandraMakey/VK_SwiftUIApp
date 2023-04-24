@@ -15,13 +15,21 @@ struct GroupTableView: View {
     }
     var body: some View {
         NavigationView {
-            List(viewModel.groups.sorted(by: {$0.name < $1.name})) { group in
+            List(viewModel.detachedGroups.sorted(by: {$0.name < $1.name})) { group in
                 GroupTableCell(group: group) {
                     Image(group.photo50)
                     Text(group.name)
+                
                 }
+//                   }
+//            List(viewModel.groups.sorted(by: {$0.name < $1.name})) { group in
+//                GroupTableCell(group: group) {
+//                    Image(group.photo50)
+//                    Text(group.name)
+//
+//                }
+            } .onAppear { viewModel.fetch()
             }
-            .onAppear { viewModel.fetch() }
             .navigationTitle("Group")
         }
     }
@@ -29,6 +37,6 @@ struct GroupTableView: View {
 
 struct GroupeTableView_Previews: PreviewProvider {
     static var previews: some View {
-        GroupTableView(viewModel: GroupViewModel(api: GroupsAPI()))
+        GroupTableView(viewModel: GroupViewModel(api: GroupsAPI(), realmService: RealmService()))
     }
 }

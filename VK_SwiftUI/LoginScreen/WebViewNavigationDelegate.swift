@@ -7,6 +7,7 @@
 
 import SwiftUI
 import WebKit
+import RealmSwift
 
 class WebViewNavigationDelegate: NSObject, WKNavigationDelegate {
     

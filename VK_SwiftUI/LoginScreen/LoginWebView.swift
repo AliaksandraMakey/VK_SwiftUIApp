@@ -32,12 +32,12 @@ struct LoginWebView: UIViewRepresentable {
         components.host = "oauth.vk.com"
         components.path = "/authorize"
         components.queryItems = [
-            URLQueryItem(name: "client_id", value: session.cliendId),
+            URLQueryItem(name: "client_id", value: "51623977"),
             URLQueryItem(name: "display", value: "mobile"),
             URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
             URLQueryItem(name: "scope", value: "270342"),
             URLQueryItem(name: "response_type", value: "token"),
-            URLQueryItem(name: "v", value: session.version)
+            URLQueryItem(name: "v", value: "5.131")
             ]
             
         return components.url.map { URLRequest(url: $0) }
