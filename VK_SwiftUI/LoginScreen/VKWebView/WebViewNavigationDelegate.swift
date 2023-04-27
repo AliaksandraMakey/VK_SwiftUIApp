@@ -10,12 +10,13 @@ import WebKit
 import RealmSwift
 
 class WebViewNavigationDelegate: NSObject, WKNavigationDelegate {
-    
     @ObservedObject var session = Session.shared
-
-        func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+    
+        func webView(_ webView: WKWebView,
+                     decidePolicyFor navigationResponse: WKNavigationResponse,
+                     decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
             guard let url = navigationResponse.response.url,
-                  url.path == "/blank.html",
+                  url.path == "/blank.html" ,
                   let fragment = url.fragment else {
                 decisionHandler(.allow)
                 return
@@ -46,8 +47,8 @@ class WebViewNavigationDelegate: NSObject, WKNavigationDelegate {
             session.userId = userIdString
             session.isAuthorized = true
         
-            UserDefaults.standard.set(token, forKey: "vkToken")
-            NotificationCenter.default.post(name: NSNotification.Name("vkTokenSaved"), object: self)
+//            UserDefaults.standard.set(token, forKey: "vkToken")
+//            NotificationCenter.default.post(name: NSNotification.Name("vkTokenSaved"), object: self)
         decisionHandler(.cancel)
     }
 }

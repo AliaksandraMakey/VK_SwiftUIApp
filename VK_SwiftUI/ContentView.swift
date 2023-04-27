@@ -9,56 +9,23 @@ import SwiftUI
 
 
 struct ContentView: View {
-    @EnvironmentObject var authentication: Authentication
-    @State private var selectedTab: Tab = .newspaper
+    @State private var shouldShowMainView: Bool = false
+    @ObservedObject var session = Session.shared
+    @StateObject var authentication = Authentication()
     
-    init() {
-        UITabBar.appearance().isHidden = true
-    }
     var body: some View {
-        VStack {
-            // Image and name User
-            UserHeader()
-                .padding(.top, -10)
-            NavigationView {
-                ZStack {
-                    VStack {
-                        TabView(selection: $selectedTab) {
-                            ForEach(Tab.allCases, id: \.rawValue) { tab in
-                                HStack {
-                                    switch selectedTab {
-                                    case .person:
-                                        FriendTableView(friends: friendArray)
-                                    case .newspaper:
-                                        NewsTableView(news: newsArray)
-                                    case .folder:
-                                        GroupTableView(group: groupArray)
-                                    }
-                                }
-                                .tag(tab)
-                            }
-                        }
-                    }
-                    
-                    VStack {
-                        Spacer()
-                        CustomTabBar(selectedTab: $selectedTab)
-                    }
-                }
-                    .toolbar {
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            Button("Log out") {
-                                authentication.updateValidation(success: false)
-                            }
-                            .foregroundColor(Color.black)
-                        }
-                    }
-                
-            }
+           
+        ZStack {
+//            if authentication.isValidated {
+                TabBarView()
+//                    .environmentObject(authentication)
+//            } else {
+//                LoginView()
+//                    .environmentObject(authentication)
+//            }
         }
     }
 }
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()

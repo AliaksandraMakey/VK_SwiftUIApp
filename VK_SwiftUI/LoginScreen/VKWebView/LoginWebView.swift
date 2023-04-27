@@ -9,20 +9,22 @@ import SwiftUI
 import WebKit
 
 struct LoginWebView: UIViewRepresentable {
-    
+   static let webView: WKWebView = WKWebView()
     @ObservedObject var session = Session.shared
    
     fileprivate let navigationDelegate = WebViewNavigationDelegate()
     
+    
     func makeUIView(context: Context) -> WKWebView {
-        let webView = WKWebView()
-        webView.navigationDelegate = navigationDelegate
-        return webView
+        LoginWebView.webView.navigationDelegate = navigationDelegate
+        return LoginWebView.webView
     }
     
     func updateUIView(_ uiView: WKWebView, context: Context) {
         if let request = buildAuthRequest() {
-            uiView.load(request)
+            if session.token == "" {
+                uiView.load(request)
+            } else {return}
         }
     }
     

@@ -19,7 +19,7 @@ import RealmSwift
 //        self.api = api
 //    }
 //
-//    public func fetch() {
+//    public func fetchGroup() {
 //        api.getGroups { [weak self] groups in
 //            guard let self = self else { return }
 //            print(groups)
@@ -30,27 +30,28 @@ import RealmSwift
 
 class GroupViewModel: ObservableObject {
     let api: GroupService
-        let realmService: AnyRealmService
-        let objectWillChange = ObjectWillChangePublisher()
-        private(set) lazy var groups: Results<Group>? = try?
+    let realmService: AnyRealmService
+    let objectWillChange = ObjectWillChangePublisher()
+    
+    private(set) lazy var groups: Results<Group>? = try?
     
     realmService.get(Group.self, configuration: .deleteIfMigration)
-
-    var detachedGroups: [Group] { groups?.map { $0.detached() } ?? [] }
-
-    private var notificationToken: NotificationToken?
-
-    init(api: GroupService, realmService: AnyRealmService) {
-          self.api = api
-          self.realmService = realmService
-
-          notificationToken = groups?.observe { [weak self] _ in
-              self?.objectWillChange.send()
-          }
-      }
     
-    public func fetch() {
-//        print("Groups requested")
+    
+    var detachedGroups: [Group] { groups?.map { $0.detached() } ?? [] }
+    
+    private var notificationToken: NotificationToken?
+    
+    init(api: GroupService, realmService: AnyRealmService) {
+        self.api = api
+        self.realmService = realmService
+        
+        notificationToken = groups?.observe { [weak self] _ in
+            self?.objectWillChange.send()
+        }
+    }
+    
+    public func fetchGroup() {
         api.getGroups { [weak self] result in
             switch result {
             case .success(let groups):
@@ -60,8 +61,9 @@ class GroupViewModel: ObservableObject {
             }
         }
     }
-
+    
     deinit {
         notificationToken?.invalidate()
     }
 }
+

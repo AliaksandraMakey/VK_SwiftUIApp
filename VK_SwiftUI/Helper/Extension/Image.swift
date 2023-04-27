@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 extension Image {
     func imageCornerModifier() -> some View {
@@ -17,6 +18,7 @@ extension Image {
                 Circle().stroke(.black, lineWidth: 1)
             }
     }
+
     func imageFrameForCellModifier() -> some View {
         self
             .imageCornerModifier()
@@ -24,3 +26,4 @@ extension Image {
     }
      
 }
+

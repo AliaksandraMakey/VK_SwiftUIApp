@@ -10,13 +10,21 @@ import SwiftUI
 struct UserHeader: View {
     var user = User()
     @State private var isScaled = false
+    
     var body: some View {
         HStack() {
             Grid {
                 Image(user.photoAvatar)
                     .imageCornerModifier()
                     .scaleEffect(isScaled ? 1.5 : 1.0)
-                   
+                    .onTapGesture {
+                        withAnimation(.spring(response: 0.55,
+                                              dampingFraction: 0.8,
+                                              blendDuration: 0.5)) {
+                            self.isScaled.toggle()
+                        }
+                        self.isScaled.toggle()
+                    }
                     .frame(width: 85.0, height: 85.0)
                     .padding(.leading, -140)
             }

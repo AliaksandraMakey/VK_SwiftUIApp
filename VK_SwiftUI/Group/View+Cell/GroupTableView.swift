@@ -13,24 +13,17 @@ struct GroupTableView: View {
     init(viewModel: GroupViewModel) {
         self.viewModel = viewModel
     }
+    
     var body: some View {
-        NavigationView {
+//        NavigationView {
             List(viewModel.detachedGroups.sorted(by: {$0.name < $1.name})) { group in
                 GroupTableCell(group: group) {
-                    Image(group.photo50)
+                    Image(group.photo100)
                     Text(group.name)
-                
                 }
-//                   }
-//            List(viewModel.groups.sorted(by: {$0.name < $1.name})) { group in
-//                GroupTableCell(group: group) {
-//                    Image(group.photo50)
-//                    Text(group.name)
-//
-//                }
-            } .onAppear { viewModel.fetch()
-            }
-            .navigationTitle("Group")
+//            }
+            .onAppear { viewModel.fetchGroup()}
+//            .navigationTitle("Group")
         }
     }
 }
