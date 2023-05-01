@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// MARK: - Tab
 enum Tab: String {
     case friends = "Friends"
     case groups = "Groups"

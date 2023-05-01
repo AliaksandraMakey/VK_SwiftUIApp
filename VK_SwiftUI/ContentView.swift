@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-
+// MARK: - ContentView
 struct ContentView: View {
+    // properties
     @State private var shouldShowMainView: Bool = false
     @ObservedObject var session = Session.shared
     @StateObject var authentication = Authentication()
     
     var body: some View {
-           
         ZStack {
 //            if authentication.isValidated {
                 TabBarView()
@@ -26,6 +26,8 @@ struct ContentView: View {
         }
     }
 }
+
+// MARK: ContentView_Previews
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()

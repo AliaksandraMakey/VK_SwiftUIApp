@@ -7,7 +7,9 @@
 
 import SwiftUI
 
+// MARK: - NewsTableView
 struct NewsTableView: View {
+    // properties
     var news = [NewsModel]()
     var body: some View {
 //        NavigationView {
@@ -22,7 +24,7 @@ struct NewsTableView: View {
         }
     }
 }
-
+// MARK: - NewsTableView_Previews
 struct NewsTableView_Previews: PreviewProvider {
     static var previews: some View {
         NewsTableView(news: newsArray)

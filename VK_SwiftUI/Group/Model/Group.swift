@@ -9,12 +9,12 @@ import SwiftUI
 import RealmSwift
 
 
-// MARK: - GroupContainer
+// MARK: - GetGroupResponse
 struct GetGroupResponse: Codable {
     let response: GroupResponse
 }
 
-// MARK: - Response
+// MARK: - GroupResponse
 struct GroupResponse: Codable {
     let count: Int
     let items: [Group]
@@ -26,7 +26,7 @@ class Group: Object, Codable, Identifiable {
     @objc dynamic var photo50: String = ""
     @objc dynamic var photo100: String = ""
     @objc dynamic var name: String = ""
-    
+    // MARK: - CodingKeys
     enum CodingKeys: String, CodingKey {
         case id
         case type
@@ -34,7 +34,7 @@ class Group: Object, Codable, Identifiable {
         case photo100 = "photo_100"
         case name
     }
-    
+    // primaryKey
     override static func primaryKey() -> String? {
         return "id"
     }

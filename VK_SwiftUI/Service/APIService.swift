@@ -7,9 +7,11 @@
 
 import Foundation
 
+// MARK: - APIService
 class APIService {
+    // shared
     static let shared = APIService()
-    
+    // login
     func login(user: User, completion: @escaping ((Result<Bool, Authentication.AuthenticationError>)-> Void)) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             if user.password == "12" {

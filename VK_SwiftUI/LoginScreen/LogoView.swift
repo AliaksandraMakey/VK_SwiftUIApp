@@ -7,9 +7,12 @@
 
 import SwiftUI
 
+//MARK: - LogoView
 struct LogoView: View {
+    
     var body: some View {
         Image("logo")
+        // dimension setting
             .resizable()
              .frame(width: 200.0, height: 200.0)
             .clipShape(Circle())
@@ -19,7 +22,7 @@ struct LogoView: View {
             .shadow(radius: 20)
     }
 }
-
+//MARK: - LogoView_Previews
 struct LogoView_Previews: PreviewProvider {
     static var previews: some View {
         LogoView()

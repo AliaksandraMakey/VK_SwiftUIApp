@@ -7,27 +7,27 @@
 
 import SwiftUI
 
+// MARK: - VK_SwiftUIApp
 @main
 struct VK_SwiftUIApp: App {
-    
+
     var body: some Scene {
-        
         WindowGroup {
+            // Navigation stack
             NavigationStack {
                 VStack {
                     NavigationLink(destination:  LoginWebView()) {
                         Text("Login Web View")
                     }
                     Divider()
-//                    ContentView()
                     NavigationLink(destination:  ContentView()) {
                         Text("Login View")
                     }
                 }
-//                 TableView example, how it's works.
+                //  TableView example, how it's works.
                 .tabViewStyle(PageTabViewStyle())
                 .rotationEffect(Angle(degrees: 0))
-//                navigation bar
+                // navigation bar
                 .navigationBarTitle("", displayMode: .inline)
                 .navigationBarHidden(true)
                 .navigationBarBackButtonHidden(true)

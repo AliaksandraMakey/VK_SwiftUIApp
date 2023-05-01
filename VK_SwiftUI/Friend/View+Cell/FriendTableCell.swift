@@ -8,11 +8,13 @@
 import SwiftUI
 import SDWebImageSwiftUI
 
+// MARK: - FriendTableCell
 struct FriendTableCell<Content: View>: View {
+    // properties
     let content: Content
     let friend: Friend
     @State private var showingSheet = false
-    
+    // init
     init(friend: Friend,
          @ViewBuilder content: ()-> Content) {
         self.friend = friend
@@ -23,30 +25,28 @@ struct FriendTableCell<Content: View>: View {
         VStack(alignment: .leading) {
             HStack {
                 Grid {
-                    WebImage(url: URL(string: friend.photo100 ?? ""))
-                            .clipShape(Circle())
-                            .shadow(radius: 5)
-                            .overlay {
-                                Circle().stroke(.black, lineWidth: 1)
-                            }
-                            .padding(.leading, +20)
-              
+                    WebImageBuilder {
+                        WebImage(url: URL(string: friend.photo100 ?? ""))
+                    }
+                    .padding(.leading, +20)
                 }
                 Grid {
                     VStack {
                         Text("\(friend.firstName) \(friend.lastName)")
-//                        Text("\(friend.birthDay)")
+                        //                        Text("\(friend.birthDay)")
                     }
-                        .font(.title)
-                        .foregroundColor(Color.gray)
+                    .font(.title)
+                    .foregroundColor(Color.gray)
                     
                     Button("") {
                         showingSheet.toggle()
                     } .padding()
                         .sheet(isPresented: $showingSheet) {
-                            PhotoViewCell(friend: friend, viewModel: PhotoViewModel(userId: friend, api: PhotosAPI()))
+                            FriendsPhotoAlbumView(viewModel: PhotoViewModel(userId: friend, api: PhotosAPI()))
+
                         }
                 }
+                // dimension setting for first VStack
                 .padding(.leading, -20)
                 .frame(width: 250, height: 100)
             }

@@ -7,10 +7,12 @@
 
 import SwiftUI
 
+// MARK: - NewsTableView
 struct TableNewsWithText<Content: View>: View {
-    
+    // properties
     let content: Content
     let news: NewsModel
+    // init
     init(news: NewsModel,
          @ViewBuilder content: ()-> Content) {
         self.news = news
@@ -21,21 +23,26 @@ struct TableNewsWithText<Content: View>: View {
         VStack(alignment: .leading) {
             HStack {
                 Grid {
-                    Image(news.photoAvatar)
-                        .imageCornerModifier()
-                        .frame(width: 60.0, height: 60.0)
+                    ImageBuilder {
+                        // Image
+                        Image(news.photoAvatar)
+                    }
                         .padding(.leading, -10)
                 }
                 Grid {
+                    // Text
                     Text(news.ouner)
                         .font(.title)
+                    // Text
                     Text("в сети")
                         .foregroundColor(Color.gray)
                 }
+                // dimension setting
                 .padding(.leading, -20)
                 .frame(width: 200, height: 100)
             }
             Spacer()
+            // Text
             Text(news.text)
                 .padding(.leading, -10)
             Spacer()
@@ -43,13 +50,12 @@ struct TableNewsWithText<Content: View>: View {
             //FIXME: обработать добавление фото
             HStack {
                 if news.photos != nil {
+                    // Image
                     Image(news.photos![0])
-                        .resizable()
-                    
-                        .frame(width: 140.0, height: 140.0)
+                        .sizeForNewsPhotos()
+                    // Image
                     Image(news.photos![1])
-                        .resizable()
-                        .frame(width: 140.0, height: 140.0)
+                        .sizeForNewsPhotos()
                 } else {
                     Spacer()
                 }

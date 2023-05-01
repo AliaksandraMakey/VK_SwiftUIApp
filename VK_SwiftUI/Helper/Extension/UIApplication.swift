@@ -7,7 +7,9 @@
 
 import UIKit
 
+// MARK: - extension UIApplication
 extension UIApplication {
+    // endEditing
     func endEditing() {
         sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }

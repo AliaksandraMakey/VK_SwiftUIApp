@@ -8,40 +8,19 @@
 import SwiftUI
 import RealmSwift
 
-//class GroupViewModel: ObservableObject {
-//
-//    let api: GroupService
-//    let objectWillChange = ObjectWillChangePublisher()
-//
-//    @Published var groups: [Group] = []
-//
-//    init(api: GroupService) {
-//        self.api = api
-//    }
-//
-//    public func fetchGroup() {
-//        api.getGroups { [weak self] groups in
-//            guard let self = self else { return }
-//            print(groups)
-//                self.groups = groups
-//        }
-//    }
-//}
-
+// MARK: - GroupViewModel
 class GroupViewModel: ObservableObject {
+    // properties
     let api: GroupService
     let realmService: AnyRealmService
     let objectWillChange = ObjectWillChangePublisher()
-    
     private(set) lazy var groups: Results<Group>? = try?
     
     realmService.get(Group.self, configuration: .deleteIfMigration)
-    
-    
     var detachedGroups: [Group] { groups?.map { $0.detached() } ?? [] }
-    
     private var notificationToken: NotificationToken?
     
+    // init
     init(api: GroupService, realmService: AnyRealmService) {
         self.api = api
         self.realmService = realmService
@@ -50,7 +29,7 @@ class GroupViewModel: ObservableObject {
             self?.objectWillChange.send()
         }
     }
-    
+    // fetchGroup
     public func fetchGroup() {
         api.getGroups { [weak self] result in
             switch result {
@@ -61,9 +40,8 @@ class GroupViewModel: ObservableObject {
             }
         }
     }
-    
+    // deinit
     deinit {
         notificationToken?.invalidate()
     }
 }
-

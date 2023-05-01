@@ -6,19 +6,18 @@
 //
 
 import SwiftUI
-//import RealmSwift
 
-
+// MARK: - GetFriendResponse
 struct GetFriendResponse: Codable {
     let response: FriendResponse
 }
 
-// MARK: - Response
+// MARK: - FriendResponse
 struct FriendResponse: Codable {
     let count: Int
     let items: [Friend]
 }
-
+// MARK: - Friend
 class Friend: Codable, Identifiable {
     let id: Int
     let firstName: String
@@ -26,7 +25,7 @@ class Friend: Codable, Identifiable {
     let photo100: String?
     let birthDay: String?
     
-    
+    // MARK: - CodingKeys
     enum CodingKeys: String, CodingKey {
         case firstName = "first_name"
         case id

@@ -7,7 +7,9 @@
 
 import SwiftUI
 
+// MARK: - TabBarElementItem
 struct TabBarElementItem {
+    // properties
     var title: String
     var systemImageName: String
 }

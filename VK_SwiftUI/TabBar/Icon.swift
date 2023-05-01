@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - Icon
 enum Icon: String {
     case friends = "person.2.fill"
     case group = "folder.fill"

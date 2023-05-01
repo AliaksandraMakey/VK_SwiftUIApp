@@ -12,7 +12,13 @@
 		001B605229EFD84600BACE4A /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001B605129EFD84600BACE4A /* Session.swift */; };
 		001B605429EFFC9000BACE4A /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001B605329EFFC9000BACE4A /* TabBarView.swift */; };
 		004DCE3229F682B9000E6C21 /* CustomLikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004DCE3129F682B9000E6C21 /* CustomLikeButton.swift */; };
-		0062F20329E44E1800E29A3E /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0062F20229E44E1800E29A3E /* Image.swift */; };
+		006EEF1429FFEF8300889E4C /* AnyRealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006EEF1329FFEF8300889E4C /* AnyRealmService.swift */; };
+		006EEF1729FFEFF000889E4C /* ProtocolDetachableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006EEF1629FFEFF000889E4C /* ProtocolDetachableObject.swift */; };
+		006EEF1929FFF04C00889E4C /* ExtensionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006EEF1829FFF04C00889E4C /* ExtensionList.swift */; };
+		006EEF1B29FFF65F00889E4C /* ProtocolGroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006EEF1A29FFF65F00889E4C /* ProtocolGroupService.swift */; };
+		006EEF1D29FFFA6E00889E4C /* ProtocolFriendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006EEF1C29FFFA6E00889E4C /* ProtocolFriendService.swift */; };
+		006EEF1F29FFFB3300889E4C /* ProtocolPhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006EEF1E29FFFB3300889E4C /* ProtocolPhotoService.swift */; };
+		006EEF2129FFFC6B00889E4C /* ExtensionImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006EEF2029FFFC6B00889E4C /* ExtensionImage.swift */; };
 		007CC81729F12C7D004839D8 /* RealmConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007CC81629F12C7D004839D8 /* RealmConfiguration.swift */; };
 		007CC81A29F12CC4004839D8 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007CC81929F12CC4004839D8 /* RealmService.swift */; };
 		007CC81C29F12CFA004839D8 /* DetachableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007CC81B29F12CFA004839D8 /* DetachableObject.swift */; };
@@ -22,6 +28,9 @@
 		007F9BCC29FAAFC60005FB14 /* TabBarElementItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007F9BCB29FAAFC60005FB14 /* TabBarElementItem.swift */; };
 		007F9BCE29FAAFEC0005FB14 /* UITabBarWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007F9BCD29FAAFEC0005FB14 /* UITabBarWrapper.swift */; };
 		007F9BD029FAB0210005FB14 /* TabBarElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007F9BCF29FAB0210005FB14 /* TabBarElement.swift */; };
+		007F9C3F29FFC5FF0005FB14 /* FriendsPhotoAlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007F9C3E29FFC5FF0005FB14 /* FriendsPhotoAlbumView.swift */; };
+		007F9C4129FFD1690005FB14 /* ImageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007F9C4029FFD1680005FB14 /* ImageBuilder.swift */; };
+		007F9C4329FFD6760005FB14 /* WebImageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007F9C4229FFD6760005FB14 /* WebImageBuilder.swift */; };
 		008D4E0629F9635B00289B57 /* FriendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008D4E0529F9635B00289B57 /* FriendViewModel.swift */; };
 		008D4E0829F963C700289B57 /* FriendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008D4E0729F963C700289B57 /* FriendService.swift */; };
 		008D4E0B29F96EC000289B57 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008D4E0A29F96EC000289B57 /* Photo.swift */; };
@@ -62,7 +71,13 @@
 		001B605129EFD84600BACE4A /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		001B605329EFFC9000BACE4A /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		004DCE3129F682B9000E6C21 /* CustomLikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLikeButton.swift; sourceTree = "<group>"; };
-		0062F20229E44E1800E29A3E /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		006EEF1329FFEF8300889E4C /* AnyRealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyRealmService.swift; sourceTree = "<group>"; };
+		006EEF1629FFEFF000889E4C /* ProtocolDetachableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolDetachableObject.swift; sourceTree = "<group>"; };
+		006EEF1829FFF04C00889E4C /* ExtensionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionList.swift; sourceTree = "<group>"; };
+		006EEF1A29FFF65F00889E4C /* ProtocolGroupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolGroupService.swift; sourceTree = "<group>"; };
+		006EEF1C29FFFA6E00889E4C /* ProtocolFriendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolFriendService.swift; sourceTree = "<group>"; };
+		006EEF1E29FFFB3300889E4C /* ProtocolPhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolPhotoService.swift; sourceTree = "<group>"; };
+		006EEF2029FFFC6B00889E4C /* ExtensionImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionImage.swift; sourceTree = "<group>"; };
 		007CC81629F12C7D004839D8 /* RealmConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmConfiguration.swift; sourceTree = "<group>"; };
 		007CC81929F12CC4004839D8 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		007CC81B29F12CFA004839D8 /* DetachableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetachableObject.swift; sourceTree = "<group>"; };
@@ -72,6 +87,9 @@
 		007F9BCB29FAAFC60005FB14 /* TabBarElementItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarElementItem.swift; sourceTree = "<group>"; };
 		007F9BCD29FAAFEC0005FB14 /* UITabBarWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarWrapper.swift; sourceTree = "<group>"; };
 		007F9BCF29FAB0210005FB14 /* TabBarElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarElement.swift; sourceTree = "<group>"; };
+		007F9C3E29FFC5FF0005FB14 /* FriendsPhotoAlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsPhotoAlbumView.swift; sourceTree = "<group>"; };
+		007F9C4029FFD1680005FB14 /* ImageBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBuilder.swift; sourceTree = "<group>"; };
+		007F9C4229FFD6760005FB14 /* WebImageBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageBuilder.swift; sourceTree = "<group>"; };
 		008D4E0529F9635B00289B57 /* FriendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewModel.swift; sourceTree = "<group>"; };
 		008D4E0729F963C700289B57 /* FriendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendService.swift; sourceTree = "<group>"; };
 		008D4E0A29F96EC000289B57 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
@@ -144,6 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				0062F20129E44DDE00E29A3E /* Extension */,
+				007F9C4029FFD1680005FB14 /* ImageBuilder.swift */,
+				007F9C4229FFD6760005FB14 /* WebImageBuilder.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -152,8 +172,8 @@
 			isa = PBXGroup;
 			children = (
 				009BDBEF29DC8A3900D0DEEE /* UIApplication.swift */,
-				0062F20229E44E1800E29A3E /* Image.swift */,
 				007CC81629F12C7D004839D8 /* RealmConfiguration.swift */,
+				006EEF2029FFFC6B00889E4C /* ExtensionImage.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -161,8 +181,11 @@
 		007CC81829F12CAC004839D8 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
+				006EEF1329FFEF8300889E4C /* AnyRealmService.swift */,
 				007CC81929F12CC4004839D8 /* RealmService.swift */,
 				007CC81B29F12CFA004839D8 /* DetachableObject.swift */,
+				006EEF1829FFF04C00889E4C /* ExtensionList.swift */,
+				006EEF1629FFEFF000889E4C /* ProtocolDetachableObject.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -197,6 +220,7 @@
 		007F9BA829FA55F30005FB14 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				006EEF1A29FFF65F00889E4C /* ProtocolGroupService.swift */,
 				007CC82329F1387F004839D8 /* GroupsService.swift */,
 			);
 			path = Service;
@@ -205,6 +229,7 @@
 		007F9BA929FA56050005FB14 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				006EEF1C29FFFA6E00889E4C /* ProtocolFriendService.swift */,
 				008D4E0729F963C700289B57 /* FriendService.swift */,
 			);
 			path = Service;
@@ -214,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				008D4E0F29F9767900289B57 /* PhotosService.swift */,
+				006EEF1E29FFFB3300889E4C /* ProtocolPhotoService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -250,6 +276,7 @@
 			children = (
 				00E37CB429E6CF0E004E8C49 /* FriendTableView.swift */,
 				00E37CC629E6D8BD004E8C49 /* FriendTableCell.swift */,
+				007F9C3E29FFC5FF0005FB14 /* FriendsPhotoAlbumView.swift */,
 			);
 			path = "View+Cell";
 			sourceTree = "<group>";
@@ -549,12 +576,16 @@
 				00E37CCA29E6DBE8004E8C49 /* CustomTabBar.swift in Sources */,
 				008D4E0829F963C700289B57 /* FriendService.swift in Sources */,
 				009BDBF829DD488400D0DEEE /* LogoView.swift in Sources */,
+				006EEF1D29FFFA6E00889E4C /* ProtocolFriendService.swift in Sources */,
 				008D4E0B29F96EC000289B57 /* Photo.swift in Sources */,
+				006EEF1F29FFFB3300889E4C /* ProtocolPhotoService.swift in Sources */,
 				00E37CCC29E6DCC5004E8C49 /* Tab.swift in Sources */,
 				008D4E1029F9767900289B57 /* PhotosService.swift in Sources */,
-				0062F20329E44E1800E29A3E /* Image.swift in Sources */,
+				007F9C3F29FFC5FF0005FB14 /* FriendsPhotoAlbumView.swift in Sources */,
 				009BDBF429DC8ECB00D0DEEE /* LoginView.swift in Sources */,
 				001B604D29EFD7B900BACE4A /* LoginWebView.swift in Sources */,
+				006EEF1429FFEF8300889E4C /* AnyRealmService.swift in Sources */,
+				006EEF1729FFEFF000889E4C /* ProtocolDetachableObject.swift in Sources */,
 				004DCE3229F682B9000E6C21 /* CustomLikeButton.swift in Sources */,
 				00E37CBB29E6CFC5004E8C49 /* Group.swift in Sources */,
 				00C649D029E424BC00CC8E93 /* UserHeader.swift in Sources */,
@@ -563,8 +594,10 @@
 				009BDBDE29DC4DC100D0DEEE /* ContentView.swift in Sources */,
 				00C649C429E40DD100CC8E93 /* TableNewsWithText.swift in Sources */,
 				00C649C829E40E5E00CC8E93 /* NewsTableView.swift in Sources */,
+				007F9C4329FFD6760005FB14 /* WebImageBuilder.swift in Sources */,
 				007F9BCC29FAAFC60005FB14 /* TabBarElementItem.swift in Sources */,
 				008D4E0629F9635B00289B57 /* FriendViewModel.swift in Sources */,
+				006EEF2129FFFC6B00889E4C /* ExtensionImage.swift in Sources */,
 				007F9BC729FAAF4C0005FB14 /* Icon.swift in Sources */,
 				009A9F5029F13B96004DA2FA /* GroupViewModel.swift in Sources */,
 				00E37CC529E6D8A1004E8C49 /* GroupTableCell.swift in Sources */,
@@ -573,16 +606,19 @@
 				007CC81C29F12CFA004839D8 /* DetachableObject.swift in Sources */,
 				009BDBDC29DC4DC100D0DEEE /* VK_SwiftUIApp.swift in Sources */,
 				007F9BCE29FAAFEC0005FB14 /* UITabBarWrapper.swift in Sources */,
+				007F9C4129FFD1690005FB14 /* ImageBuilder.swift in Sources */,
 				007CC82429F1387F004839D8 /* GroupsService.swift in Sources */,
 				00E37CEF29E7F403004E8C49 /* PhotoViewCell.swift in Sources */,
 				00E37CB729E6CF20004E8C49 /* GroupTableView.swift in Sources */,
 				007F9BC929FAAF8D0005FB14 /* ProtocolTabBarElementView.swift in Sources */,
 				00E37CB929E6CF7A004E8C49 /* Friend.swift in Sources */,
+				006EEF1929FFF04C00889E4C /* ExtensionList.swift in Sources */,
 				009BDBEE29DC88B400D0DEEE /* APIService.swift in Sources */,
 				009BDBEB29DC881000D0DEEE /* User.swift in Sources */,
 				001B604F29EFD7E800BACE4A /* WebViewNavigationDelegate.swift in Sources */,
 				007F9BD029FAB0210005FB14 /* TabBarElement.swift in Sources */,
 				008D4E0E29F9765100289B57 /* PhotoViewModel.swift in Sources */,
+				006EEF1B29FFF65F00889E4C /* ProtocolGroupService.swift in Sources */,
 				001B605429EFFC9000BACE4A /* TabBarView.swift in Sources */,
 				00E37CC729E6D8BD004E8C49 /* FriendTableCell.swift in Sources */,
 			);

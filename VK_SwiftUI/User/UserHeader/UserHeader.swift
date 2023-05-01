@@ -7,28 +7,24 @@
 
 import SwiftUI
 
+// MARK: - UserHeader
 struct UserHeader: View {
+    // properties
     var user = User()
-    @State private var isScaled = false
     
     var body: some View {
         HStack() {
             Grid {
-                Image(user.photoAvatar)
-                    .imageCornerModifier()
-                    .scaleEffect(isScaled ? 1.5 : 1.0)
-                    .onTapGesture {
-                        withAnimation(.spring(response: 0.55,
-                                              dampingFraction: 0.8,
-                                              blendDuration: 0.5)) {
-                            self.isScaled.toggle()
-                        }
-                        self.isScaled.toggle()
-                    }
-                    .frame(width: 85.0, height: 85.0)
-                    .padding(.leading, -140)
+                // User's avatar
+                ImageBuilder {
+                    Image(user.photoAvatar)
+                }
+                .padding(.leading, -140)
+                .frame(width: 85.0, height: 85.0)
+                
             }
             Grid {
+                // User's name
                 Text(user.name)
                     .font(.largeTitle)
                 Text("в сети")
@@ -37,10 +33,9 @@ struct UserHeader: View {
             .padding(.leading, -90)
             .frame(width: 80, height: 80)
         }
-        
     }
 }
-
+// MARK: - UserHeader_Previews
 struct UserHeader_Previews: PreviewProvider {
     static var previews: some View {
         UserHeader()

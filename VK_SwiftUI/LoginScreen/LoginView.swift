@@ -9,13 +9,14 @@ import SwiftUI
 import Combine
 import WebKit
 
-
+// MARK: - LoginView
 struct LoginView: View {
+    // properties
     @StateObject private var loginViewModel = LoginModel()
     @EnvironmentObject var authentication: Authentication
     @State private var shouldShowLogo: Bool = true
-//    @Binding var isUserLoggedInn: Bool
     
+    // keyboardIsOnPublisher
     private let keyboardIsOnPublisher = Publishers.Merge(NotificationCenter.default.publisher(for: UIResponder.keyboardWillChangeFrameNotification)
         .map { _ in true },
         NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)
@@ -29,11 +30,13 @@ struct LoginView: View {
             VStack {
                 if shouldShowLogo {
                     LogoView()
+                    // dimension setting
                         .frame(height: 150)
                         .offset(y: -50)
                         .padding()
                 }
                 VStack {
+                    // TextField & SecureField
                     TextField("Your email", text: $loginViewModel.user.email)
                         .keyboardType(.emailAddress)
                     Divider()
@@ -43,6 +46,7 @@ struct LoginView: View {
                     if loginViewModel.showProgressView {
                         ProgressView()
                     }
+                    // Button
                     Button {
                         loginViewModel.login { success in
                             authentication.updateValidation(success: success)
@@ -52,21 +56,27 @@ struct LoginView: View {
                     }
                     .foregroundColor(.black)
                     .disabled(loginViewModel.loginDisabled)
+                    // Tap
                     .onTapGesture {
                         UIApplication.shared.endEditing()
                     }
                 }
                 .autocapitalization(.none)
+                
+                // dimension setting
                 .font(.system(size: 20, weight: .medium, design: .monospaced))
                 .offset(y: 50)
                 .padding(.bottom, -150)
                 .padding()
                 .disabled(loginViewModel.showProgressView)
+                
+                // Alert
                 .alert(item: $loginViewModel.error) { error in
                     Alert(title: Text("Invlid Login"), message:
                             Text (error.localizedDescription))
                 }
             }
+            // dimension setting First VStack
             .frame(height: 900)
             .background(Image("screen1")
                 .resizable()
@@ -78,11 +88,13 @@ struct LoginView: View {
             withAnimation(Animation.easeInOut(duration: 0.5)) {
                 self.shouldShowLogo = !isKeyboardOn }
         }
+        // Tap
         .onTapGesture { UIApplication.shared.endEditing()
         }
     }
 }
 
+// MARK: - LoginView_Previews
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView()

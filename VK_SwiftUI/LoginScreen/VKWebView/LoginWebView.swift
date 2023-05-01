@@ -8,18 +8,20 @@
 import SwiftUI
 import WebKit
 
+// MARK: - LoginWebView
 struct LoginWebView: UIViewRepresentable {
+    // properties
    static let webView: WKWebView = WKWebView()
     @ObservedObject var session = Session.shared
-   
     fileprivate let navigationDelegate = WebViewNavigationDelegate()
     
-    
+    // makeUIView
     func makeUIView(context: Context) -> WKWebView {
         LoginWebView.webView.navigationDelegate = navigationDelegate
         return LoginWebView.webView
     }
     
+    // updateUIView
     func updateUIView(_ uiView: WKWebView, context: Context) {
         if let request = buildAuthRequest() {
             if session.token == "" {
@@ -28,6 +30,7 @@ struct LoginWebView: UIViewRepresentable {
         }
     }
     
+    // buildAuthRequest
     private func buildAuthRequest() -> URLRequest? {
         var components = URLComponents()
         components.scheme = "https"

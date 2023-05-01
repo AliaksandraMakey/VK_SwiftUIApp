@@ -8,11 +8,9 @@
 import Foundation
 import RealmSwift
 
-protocol DetachableObject: AnyObject {
-    func detached() -> Self
-}
-
+// MARK: - extension for Object
 extension Object: DetachableObject {
+    // detached
     func detached() -> Self {
         let detached = type(of: self).init()
         for property in objectSchema.properties {
@@ -26,20 +24,5 @@ extension Object: DetachableObject {
             }
         }
         return detached
-    }
-}
-
-extension List: DetachableObject {
-    func detached() -> List<Element> {
-        let result = List<Element>()
-        forEach {
-            if let detachableObject = $0 as? DetachableObject,
-               let element = detachableObject.detached() as? Element {
-                result.append(element)
-            } else {
-                result.append($0)
-            }
-        }
-        return result
     }
 }

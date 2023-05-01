@@ -8,29 +8,29 @@
 import SwiftUI
 import SDWebImageSwiftUI
 
-
+// MARK: - PhotoViewCell
 struct PhotoViewCell: View {
-    @ObservedObject var viewModel: PhotoViewModel
-       var friend: Friend
-
-       init(friend: Friend, viewModel: PhotoViewModel) {
-           self.friend = friend
-           self.viewModel = viewModel
-       }
-
-    let widht = (UIScreen.main.bounds.width) - 10
+    // properties
+    var photo: Photo
+    // init
+    init(photo: Photo) {
+        self.photo = photo
+    }
+    
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack {
-                ForEach(0..<(viewModel.photos.count), id: \.self) { index in
-                            // TODO: Add error handling
-                                VStack {
-                                    WebImage(url: URL(string: (viewModel.photos[index].sizes.last?.url) ?? ""))
-//                                        .imageCornerModifier()
-                                        .frame(width: widht, height: widht)
-                                    CustomLikeButton()
-                                }
-                }
+        GeometryReader { proxy in
+            VStack {
+                // Image
+                    WebImage(url: URL(string: photo.sizes.last?.url ?? ""))
+                // dimension setting
+                    .resizable()
+                    .shadow(radius: 3)
+                    .frame(width: proxy.size.width, height: proxy.size.height)
+                    .aspectRatio(contentMode: .fit)
+                Spacer()
+                // Like button
+                CustomLikeButton()
+                    .frame(width: proxy.size.width)
             }
         }
     }

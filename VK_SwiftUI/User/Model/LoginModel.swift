@@ -7,7 +7,9 @@
 
 import Foundation
 
+// MARK: - LoginModel
 class LoginModel: ObservableObject {
+    // properties
     @Published var user = User()
     @Published var showProgressView = false
     @Published var error: Authentication .AuthenticationError?
@@ -15,7 +17,7 @@ class LoginModel: ObservableObject {
     var loginDisabled: Bool {
         user.email.isEmpty || user.password.isEmpty
     }
-    
+    // login
     func login(completion: @escaping (Bool) -> Void) {
         showProgressView = true
         APIService.shared.login(user: user) { [unowned self] (result: Result<Bool, Authentication.AuthenticationError>) in

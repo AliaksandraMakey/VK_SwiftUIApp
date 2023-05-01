@@ -7,9 +7,11 @@
 
 import SwiftUI
 
+// MARK: - UITabBarWrapper
 struct UITabBarWrapper: View {
+    // properties
     var controllers: [UIHostingController<TabBarElement>]
-    
+    // init
     init(_ elements: [TabBarElement]) {
         self.controllers = elements.enumerated().map {
             let hostingController = UIHostingController(rootView: $1)
@@ -22,7 +24,7 @@ struct UITabBarWrapper: View {
             return hostingController
         }
     }
-    
+
     var body: some View {
         CustomTabBarController(controllers: self.controllers)
     }

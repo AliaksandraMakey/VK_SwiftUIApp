@@ -7,7 +7,9 @@
 
 import Foundation
 
+// MARK: - User
 struct User: Codable {
+    // properties
     var name: String = "Alex"
     var id: Int = 0
     var photoAvatar: String = "Alex"

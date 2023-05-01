@@ -5,22 +5,12 @@
 //  Created by aaa on 20/04/2023.
 //
 
-import Foundation
+import SwiftUI
 import RealmSwift
 
-protocol AnyRealmService {
-    func save<T: Object>(items: [T],
-                         configuration: Realm.Configuration,
-                         update: Realm.UpdatePolicy) throws
-    func get<T: Object>(_ type: T.Type,
-                        configuration: Realm.Configuration) throws -> Results<T>
-    func get<T: Object>(_ type: T.Type,
-                        configuration: Realm.Configuration) throws -> [T]
-    func delete<T: Object>(object: T,
-                           configuration: Realm.Configuration) throws
-}
-
+// MARK: - RealmService
 class RealmService: AnyRealmService {
+    // save
     func save<T: Object>(
         items: [T],
         configuration: Realm.Configuration = .deleteIfMigration,
@@ -32,7 +22,7 @@ class RealmService: AnyRealmService {
             realm.add(items, update: update)
         }
     }
-
+    // get Results
     func get<T: Object>(
         _ type: T.Type,
         configuration: Realm.Configuration = .deleteIfMigration
@@ -41,7 +31,7 @@ class RealmService: AnyRealmService {
         let realm = try Realm(configuration: configuration)
         return realm.objects(type)
     }
-
+    // get Array
     func get<T: Object>(
         _ type: T.Type,
         configuration: Realm.Configuration = .deleteIfMigration
@@ -50,7 +40,7 @@ class RealmService: AnyRealmService {
         let realm = try Realm(configuration: configuration)
         return realm.objects(type).map { $0.detached() }
     }
-
+    // delete
     func delete<T: Object>(
         object: T,
         configuration: Realm.Configuration = .deleteIfMigration

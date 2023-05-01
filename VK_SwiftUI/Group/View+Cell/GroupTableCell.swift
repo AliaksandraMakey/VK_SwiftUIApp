@@ -9,9 +9,12 @@
 import SwiftUI
 import SDWebImageSwiftUI
 
+// MARK: - GroupTableCell
 struct GroupTableCell<Content: View>: View {
+    // properties
     let content: Content
     let group: Group
+    // init
     init(group: Group,
          @ViewBuilder content: ()-> Content) {
         self.group = group
@@ -21,19 +24,14 @@ struct GroupTableCell<Content: View>: View {
     var body: some View {
         // FIXME: Расположить аватарки Групп по центру
         HStack {
-            Grid{
-                WebImage(url: URL(string: group.photo100))
-                    .frame(width: 100, height: 100)
-                    .clipShape(Circle())
-                    .shadow(radius: 10)
-                    .overlay {
-                        Circle().stroke(.black, lineWidth: 1)
-                    }
-            }
-            .padding(.leading, 10)
+            WebImageBuilder {
+                    WebImage(url: URL(string: group.photo100))
+                }
+                .padding(.leading, 10)
             Spacer()
             Grid(alignment: .center){
                 Text(group.name)
+                // dimension setting
                     .frame(width: 200, height: 100)
                     .font(.system(size: 20, weight: .bold, design: .default))
                     .foregroundColor(Color.gray)

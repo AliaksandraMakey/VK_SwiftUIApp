@@ -7,7 +7,9 @@
 
 import SwiftUI
 
+// MARK: - NewsModel
 struct NewsModel: Identifiable {
+    // properties
     var id = UUID()
     
     let ouner: String
